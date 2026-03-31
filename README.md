@@ -29,6 +29,18 @@ Wraps `actions/setup-node`. Defaults to Node.js 24.x.
     node-version: '22.x'
 ```
 
+### github-script
+
+Wraps `actions/github-script`. Passes through `result` output.
+
+```yaml
+- uses: brevisdev/.github/.github/actions/github-script@main
+  with:
+    github-token: ${{ secrets.GITHUB_TOKEN }}
+    script: |
+      console.log('Hello from script')
+```
+
 ### setup-terraform
 
 Wraps `hashicorp/setup-terraform`. Defaults to Terraform 1.14.3.
@@ -37,6 +49,24 @@ Wraps `hashicorp/setup-terraform`. Defaults to Terraform 1.14.3.
 - uses: brevisdev/.github/.github/actions/setup-terraform@main
   with:
     token: ${{ secrets.TF_API_TOKEN }}  # optional, for Terraform Cloud
+```
+
+## Reusable Workflows
+
+### deploy-dev-comment
+
+Triggers a dev deployment when someone comments "dev deploy" on a PR. Reacts with a rocket emoji and triggers the repo's `deploy-dev.yaml` workflow.
+
+```yaml
+# In consuming repo: .github/workflows/deploy-dev-comment.yaml
+name: Dev - deploy comment
+on:
+  issue_comment:
+    types: [created]
+jobs:
+  deploy:
+    uses: brevisdev/.github/.github/workflows/deploy-dev-comment.yaml@main
+    secrets: inherit
 ```
 
 ## Organization Defaults

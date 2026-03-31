@@ -1,0 +1,29 @@
+name: GitHub Script
+description: Run GitHub API scripts
+
+inputs:
+  github-token:
+    description: GitHub token
+    required: true
+  script:
+    description: JavaScript to execute
+    required: true
+  result-encoding:
+    description: Encoding for the result
+    required: false
+    default: 'string'
+
+outputs:
+  result:
+    description: Script result
+    value: ${{ steps.script.outputs.result }}
+
+runs:
+  using: composite
+  steps:
+    - id: script
+      uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+      with:
+        github-token: ${{ inputs.github-token }}
+        script: ${{ inputs.script }}
+        result-encoding: ${{ inputs.result-encoding }}
