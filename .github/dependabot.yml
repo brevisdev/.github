@@ -1,19 +1,11 @@
 version: 2
 updates:
-  - package-ecosystem: "terraform"
-    directory: "/"
-    schedule:
-      interval: "weekly"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "weekly"
-  - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      interval: "weekly"
+      interval: "cron"
+      cronjob: "40 14 28 * *"
     groups:
-      aws-packages:
+      github-actions:
         patterns:
-          - "@aws-sdk/*"
-          - "@types/aws-lambda"
+          - "*"
