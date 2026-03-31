@@ -29,6 +29,16 @@ Wraps `actions/setup-node`. Defaults to Node.js 24.x.
     node-version: '22.x'
 ```
 
+### setup-terraform
+
+Wraps `hashicorp/setup-terraform`. Defaults to Terraform 1.14.3.
+
+```yaml
+- uses: brevisdev/.github/.github/actions/setup-terraform@main
+  with:
+    token: ${{ secrets.TF_API_TOKEN }}  # optional, for Terraform Cloud
+```
+
 ## Organization Defaults
 
 - `.github/CODEOWNERS` — Default code owners for all repos
