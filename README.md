@@ -41,6 +41,17 @@ Wraps `actions/github-script`. Passes through `result` output.
       console.log('Hello from script')
 ```
 
+### docker-login
+
+Wraps `docker/login-action`. Defaults to `ghcr.io`.
+
+```yaml
+- uses: brevisdev/.github/.github/actions/docker-login@main
+  with:
+    username: ${{ github.actor }}
+    password: ${{ secrets.GITHUB_TOKEN }}
+```
+
 ### docker-build-push
 
 Wraps `docker/build-push-action`.
