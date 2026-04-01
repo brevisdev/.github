@@ -41,6 +41,16 @@ Wraps `actions/github-script`. Passes through `result` output.
       console.log('Hello from script')
 ```
 
+### docker-build-push
+
+Wraps `docker/build-push-action`.
+
+```yaml
+- uses: brevisdev/.github/.github/actions/docker-build-push@main
+  with:
+    tags: ghcr.io/${{ github.repository }}:latest
+```
+
 ### setup-terraform
 
 Wraps `hashicorp/setup-terraform`. Defaults to Terraform 1.14.3.
