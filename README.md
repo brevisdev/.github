@@ -41,6 +41,16 @@ Wraps `actions/github-script`. Passes through `result` output.
       console.log('Hello from script')
 ```
 
+### configure-aws-credentials
+
+Wraps `aws-actions/configure-aws-credentials` via OIDC. Defaults to `eu-north-1`.
+
+```yaml
+- uses: brevisdev/.github/.github/actions/configure-aws-credentials@main
+  with:
+    role-to-assume: ${{ vars.AWS_DEPLOYMENT_ROLE_ARN }}
+```
+
 ### docker-login
 
 Wraps `docker/login-action`. Defaults to `ghcr.io`.
