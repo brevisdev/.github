@@ -13,6 +13,14 @@ inputs:
   tags:
     description: Image tags
     required: true
+  target:
+    description: Build target stage
+    required: false
+    default: ''
+  build-args:
+    description: Build arguments
+    required: false
+    default: ''
 
 runs:
   using: composite
@@ -22,3 +30,5 @@ runs:
         context: ${{ inputs.context }}
         push: ${{ inputs.push }}
         tags: ${{ inputs.tags }}
+        target: ${{ inputs.target }}
+        build-args: ${{ inputs.build-args }}
