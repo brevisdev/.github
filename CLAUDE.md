@@ -17,10 +17,25 @@ Located in `.github/actions/`, these wrap upstream actions with pinned versions 
 | `checkout` | `actions/checkout` | — |
 | `setup-node` | `actions/setup-node` | Node.js 24.x |
 | `setup-terraform` | `hashicorp/setup-terraform` | Terraform 1.14.3 |
+| `configure-aws-credentials` | `aws-actions/configure-aws-credentials` | eu-north-1 |
+| `docker-login` | `docker/login-action` | ghcr.io |
+| `docker-build-push` | `docker/build-push-action` | — |
+| `github-script` | `actions/github-script` | — |
 
 Actions are consumed via: `brevisdev/.github/.github/actions/<name>@main`
 
 All upstream action references use **pinned commit SHAs** with version comments (e.g., `actions/checkout@<sha> # v6.0.2`).
+
+### Reusable Workflows
+
+Located in `.github/workflows/`, these are shared workflows consumed via `workflow_call`:
+
+| Workflow | Purpose |
+|----------|---------|
+| `deploy-dev-comment` | Triggers dev deployment from a "dev deploy" PR comment |
+| `pr-auto-approve` | Auto-approves a PR when marked ready for review |
+
+Workflows are consumed via: `brevisdev/.github/.github/workflows/<name>.yaml@main`
 
 ### Organization Defaults
 
