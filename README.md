@@ -100,6 +100,23 @@ jobs:
     secrets: inherit
 ```
 
+### pr-auto-approve
+
+Auto-approves a PR when it is marked as ready for review. Requires a `PR_REVIEW_PAT` secret with a PAT that has permission to approve PRs.
+
+```yaml
+# In consuming repo: .github/workflows/pr-auto-approve.yaml
+name: Auto Approve
+on:
+  pull_request:
+    types: [ready_for_review]
+jobs:
+  auto-approve:
+    uses: brevisdev/.github/.github/workflows/pr-auto-approve.yaml@main
+    secrets:
+      PR_REVIEW_PAT: ${{ secrets.PR_REVIEW_PAT }}
+```
+
 ## Organization Defaults
 
 - `.github/CODEOWNERS` — Default code owners for all repos
