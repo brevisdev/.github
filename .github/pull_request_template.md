@@ -1,5 +1,5 @@
 ## Jira
-[PROJ-](https://yourcompany.atlassian.net/browse/PROJ-)
+[KON-]()
 
 ## Testing
 - [ ] UAT completed on dev env
@@ -14,7 +14,7 @@
 - [ ] No sensitive data in logs
 - [ ] Input validation in place for new endpoints
 
-## ISO 27001
+## Other
 - [ ] Change affects personal/sensitive data? (if yes, document below)
 - [ ] New third party service introduced? (if yes, document below)
 
